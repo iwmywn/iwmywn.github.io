@@ -1,4 +1,4 @@
-export default [
+export const quotes = [
   {
     text: "Never regret anything from your past because one day, you'll look back and thank it for hurting you so much that you decided to become a stronger human being.",
     source: "Faith Star",
@@ -1246,8 +1246,7 @@ export default [
   },
   {
     text: "Darkness can't drive out darkness: only light can do that. Hate can't drive out hate: only love can do that.",
-    source:
-      "Martin Luther King Jr., A Testament of Hope: The Essential Writings and Speeches",
+    source: "Martin Luther King Jr., A Testament of Hope: The Essential Writings and Speeches",
   },
   {
     text: "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. You're on your own. And you know what you know. And YOU are the one who'll decide where to go...",
@@ -4029,4 +4028,4 @@ export default [
     text: "Be thankful for all things in life. Even for the bad things. Sometimes the worst situations in life turn out to be the best things that ever happened to us.",
     source: "John Milson",
   },
-] as const;
+] as const

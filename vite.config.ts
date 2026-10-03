@@ -1,9 +1,19 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { ViteMinifyPlugin } from "vite-plugin-minify";
+import { resolve } from "node:path"
+import babel from "@rolldown/plugin-babel"
+import tailwindcss from "@tailwindcss/vite"
+import react, { reactCompilerPreset } from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+import { ViteMinifyPlugin } from "vite-plugin-minify"
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), ViteMinifyPlugin({})],
-  base: "/",
-});
+  resolve: {
+    alias: { "~": resolve(import.meta.dirname, "src") },
+  },
+  plugins: [
+    react(),
+    babel({ presets: [reactCompilerPreset()] }),
+    tailwindcss(),
+    ViteMinifyPlugin({}),
+  ],
+})

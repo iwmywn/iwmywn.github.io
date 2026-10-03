@@ -1,7 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* https://github.com/majodev/google-webfonts-helper */
 @layer base {
   @font-face {
     font-family: "Montserrat";
@@ -33,5 +34,102 @@
     font-weight: 700;
     font-display: swap;
     src: url(/fonts/Montserrat-Bold.woff2) format("woff2");
+  }
+}
+
+@theme {
+  --font-montserrat: "Montserrat", ui-sans-serif, system-ui;
+
+  --animate-color-change-dark: colorChangeDark 10s linear infinite;
+  --animate-color-change-light: colorChangeLight 10s linear infinite;
+  --animate-ripple: ripple 0.6s ease-out forwards;
+
+  @keyframes colorChangeDark {
+    0% {
+      background-color: #0b1121;
+    }
+    9% {
+      background-color: #0b1222;
+    }
+    18% {
+      background-color: #101829;
+    }
+    27% {
+      background-color: #0f1e2e;
+    }
+    36% {
+      background-color: #0d2134;
+    }
+    45% {
+      background-color: #0b243a;
+    }
+    54% {
+      background-color: #0d253d;
+    }
+    63% {
+      background-color: #0b243a;
+    }
+    72% {
+      background-color: #0d2134;
+    }
+    81% {
+      background-color: #0f1e2e;
+    }
+    90% {
+      background-color: #101829;
+    }
+    100% {
+      background-color: #0b1222;
+    }
+  }
+
+  @keyframes colorChangeLight {
+    0% {
+      background-color: #f9fafc;
+    }
+    9% {
+      background-color: #f3f6fd;
+    }
+    18% {
+      background-color: #f2f5fc;
+    }
+    27% {
+      background-color: #ebf6fc;
+    }
+    36% {
+      background-color: #e5f3fc;
+    }
+    45% {
+      background-color: #e5f3fc;
+    }
+    54% {
+      background-color: #e2ecfb;
+    }
+    63% {
+      background-color: #dff1fd;
+    }
+    72% {
+      background-color: #e2ecfb;
+    }
+    81% {
+      background-color: #ebf6fc;
+    }
+    90% {
+      background-color: #f2f5fc;
+    }
+    100% {
+      background-color: #f3f6fd;
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
   }
 }

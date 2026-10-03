@@ -1,8 +1,7 @@
-import "./index.css";
-import Info from "./components/Info";
-import RandomQuote from "./components/RandomQuote";
-import ToggleTheme from "./components/ToggleTheme";
-import RippleEffect from "./components/RippleEffect";
+import { Info } from "~/components/Info"
+import { RandomQuote } from "~/components/RandomQuote"
+import { RippleEffect } from "~/components/RippleEffect"
+import { ToggleTheme } from "~/components/ToggleTheme"
 
 export default function App() {
   return (
@@ -14,5 +13,5 @@ export default function App() {
       <ToggleTheme />
       <RippleEffect />
     </>
-  );
+  )
 }
