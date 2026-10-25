@@ -7,7 +7,7 @@ export const socialLinks = [
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         height="1em"
         width="1em"
         viewBox="0 0 24 24"
@@ -25,7 +25,7 @@ export const socialLinks = [
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         height="1em"
         width="1em"
         viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ export const socialLinks = [
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         height="1em"
         width="1em"
         viewBox="0 0 24 24"
@@ -61,7 +61,7 @@ export const socialLinks = [
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         height="1em"
         width="1em"
         viewBox="0 0 24 24"

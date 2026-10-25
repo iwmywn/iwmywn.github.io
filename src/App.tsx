@@ -6,7 +6,7 @@ import { ToggleTheme } from "~/components/ToggleTheme"
 export default function App() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-center gap-y-4">
+      <main className="flex min-h-screen flex-col items-center justify-center gap-y-4 p-4">
         <Info />
         <RandomQuote />
       </main>

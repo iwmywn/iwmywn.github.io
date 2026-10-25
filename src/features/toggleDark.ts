@@ -4,6 +4,7 @@
  */
 
 import type { Dispatch, SetStateAction } from "react"
+import { flushSync } from "react-dom"
 
 interface ToggleDarkProps {
   event: MouseEvent
@@ -12,12 +13,21 @@ interface ToggleDarkProps {
 }
 
 export function toggleDark({ event, isDark, setIsDark }: ToggleDarkProps) {
+  const nextDark = !isDark
+
+  try {
+    localStorage.setItem("theme", nextDark ? "dark" : "light")
+  } catch {
+    // Ignore storage errors to ensure theme toggling remains functional
+  }
+
   const isAppearanceTransition =
     typeof document.startViewTransition === "function" &&
     !window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
   if (!isAppearanceTransition) {
-    setIsDark(!isDark)
+    setIsDark(nextDark)
+    document.documentElement.classList.toggle("dark", nextDark)
     return
   }
 
@@ -29,7 +39,10 @@ export function toggleDark({ event, isDark, setIsDark }: ToggleDarkProps) {
   )
 
   const transition = document.startViewTransition(() => {
-    setIsDark(!isDark)
+    flushSync(() => {
+      setIsDark(nextDark)
+      document.documentElement.classList.toggle("dark", nextDark)
+    })
   })
 
   transition.ready.then(() => {

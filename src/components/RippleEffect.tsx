@@ -4,7 +4,7 @@ export function RippleEffect() {
   const ripples = useRippleEffect()
 
   return (
-    <>
+    <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
       {ripples.map(({ id, x, y }) => (
         <span
           key={id}
@@ -15,6 +15,6 @@ export function RippleEffect() {
           }}
         />
       ))}
-    </>
+    </div>
   )
 }

@@ -48,11 +48,18 @@
 
     <script>
       ;(function () {
-        const savedTheme = localStorage.getItem("theme")
-        const prefersDark =
-          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-        if (savedTheme === "dark" || (savedTheme === null && prefersDark)) {
-          document.documentElement.classList.add("dark")
+        try {
+          const savedTheme = localStorage.getItem("theme")
+          const prefersDark =
+            window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          if (savedTheme === "dark" || (savedTheme === null && prefersDark)) {
+            document.documentElement.classList.add("dark")
+          }
+        } catch {
+          // If storage is inaccessible, fallback to system preference
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark")
+          }
         }
       })()
     </script>
@@ -67,7 +74,7 @@
   </head>
 
   <body
-    class="animate-color-change-light dark:animate-color-change-dark overflow-hidden text-black antialiased dark:text-white"
+    class="animate-color-change-light dark:animate-color-change-dark min-h-screen overflow-x-hidden text-black antialiased dark:text-white"
   >
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
