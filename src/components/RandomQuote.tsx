@@ -10,7 +10,9 @@ export function RandomQuote() {
       <q>
         <i>{randomQuote.text}</i>
       </q>
-      <span className="text-sm opacity-75">{randomQuote.source}</span>
+      <span translate="no" className="notranslate text-sm opacity-75">
+        {randomQuote.source}
+      </span>
     </div>
   )
 }
